@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Обратная польская запись/1.0.0": {
+        "runtime": {
+          "Обратная польская запись.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Обратная польская запись/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
