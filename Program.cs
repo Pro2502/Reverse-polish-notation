@@ -7,18 +7,18 @@ namespace Обратная_польская_запись
     {
         static void Main(string[] args)
         {
-            int n = 0;
-            int v = 0;
-            float c;
-            string s;
+            int n = 0;// для расчета количества переменных
+            int v = 0;// для расчета количества операндов
+            float c;// для расчета результата действия и далее конечного результата
+            string s;// вписываем строку
             int variable;
             var list = new List<int>();
-            Console.WriteLine("Впишите строку Обратной польской записи с пробелами");
+            Console.WriteLine("Впишите строку Обратной Польской Записи с пробелами");
             s = Console.ReadLine();
             string[] subs = s.Split(' ');
-            foreach (var sub in subs)
+            foreach (var sub in subs) // создадим список из преременных
             {
-                bool result = int.TryParse(sub, out variable);
+                bool result = int.TryParse(sub, out variable); // условие на переменную
                 if (result)
                 {
                     int j = Convert.ToInt32(sub);
@@ -39,51 +39,71 @@ namespace Обратная_польская_запись
                     v++;
                 }  
             }
+
             Console.WriteLine("Количество операндов, начиная с '0' = " + v);
-            for (int i = v-1; i >= 0; i--)
+
+            int k = n; 
+
+            for (int i = n; i <= n+(v-1); i++)
             {
                 switch (subs[i])
                 {
                     case "+":
-                        int a = list[1];
-                        int b = list[0];
+                        Console.WriteLine("Наш операнд:"+subs[i]);
+                        int a = list[k-2];
+                        int b = list[k-1];
                         c = a + b;
-                        list.RemoveAt(1);
-                        list[0] = (int)c;
-                        //list.Insert(0,(int)c);
+                        //list[k - 2] = (int)c;
+                        list.Insert(k -2,(int)c);
+                        list.RemoveAt(k - 1);
                         Console.WriteLine("Вычисленное выражение равно " + c);
+                        k--;
                         break;
                     case "-":
-                        a = list[1];
-                        b = list[0];
+                        Console.WriteLine("Наш операнд:" + subs[i]);
+                        a = list[k-2];
+                        b = list[k-1];
                         c = a - b;
-                        list.RemoveAt(1);
-                        list[0] = (int)c;
+                        //list[k - 2] = (int)c;
+                        list.Insert(k - 2, (int)c);
+                        list.RemoveAt(k-1);
                         Console.WriteLine("Вычисленное выражение равно " + c);
+                        k--;
                         break;
                     case "*":
-                        a = list[1];
-                        b = list[0];
+                        Console.WriteLine("Наш операнд:" + subs[i]);
+                        a = list[k - 2];
+                        Console.WriteLine(a);
+                        b = list[k-1];
+                        Console.WriteLine(b);
                         c = a * b;
-                        list.RemoveAt(1);
-                        list[0] = (int)c;
+                        //list[k - 2] = (int)c;
+                        list.Insert(k - 2, (int)c);
+                        list.RemoveAt(k-1);
                         Console.WriteLine("Вычисленное выражение равно " + c);
+                        k--;
                         break;
                     case "/":
-                        b = list[1];
-                        a = list[0];
+                        Console.WriteLine("Наш операнд:" + subs[i]);
+                        a = list[k-2];
+                        b = list[k-1];
                         c = a / b;
-                        list.RemoveAt(1);
-                        list[0] = (int)c;
+                        //list[k - 2] = (int)c;
+                        list.Insert(k - 2, (int)c);
+                        list.RemoveAt(k - 1);
                         Console.WriteLine("Вычисленное выражение равно " + c);
+                        k--;
                         break;
                     case "^":
-                        b = list[1];
-                        a = list[0];
+                        Console.WriteLine("Наш операнд:" + subs[i]);
+                        a = list[k-2];
+                        b = list[k-1];
                         c = a ^ b;
-                        list.RemoveAt(1);
-                        list[0] = (int)c;
+                        //list[k - 2] = (int)c;
+                        list.Insert(k - 2, (int)c);
+                        list.RemoveAt(k - 1);
                         Console.WriteLine("Вычисленное выражение равно " + c);
+                        k--;
                         break;
                 }
 
