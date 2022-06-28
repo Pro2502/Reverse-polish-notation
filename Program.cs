@@ -22,7 +22,7 @@ namespace Обратная_польская_запись
                 if (result)
                 {
                     int j = Convert.ToInt32(sub);
-                    list.Add(n);
+                    list.Add(j);
                     Console.WriteLine(n + $"-я переменная:{sub}");
                     n++;
                 }
